@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  // Background
+  --main: rgba(28, 30, 32, 0.1);
+  --dark-mode:rgba(28, 30, 32, 0.5);
+  --top-navbar: #c1121f;
+  --navbar: rgba(234, 237, 240, .8);
+
+  // Text
+  --text-main: rgba(28, 30, 32, 0.88);
+  --text-second: rgba(28, 30, 32, 0.5);
+  --text-third: #ccc;
+  --text-navbar: #ee9b00;
+  --text-link: #2DAAED;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+
+  &:not(svg) {
+    color: var(--text-main);
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+button:disabled {
+  background: var(--main);
+  color: var(--text-main);
+}
+
+select {
+  &.no-arrow {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+}
+
+.dark-mode {
+  background: var(--dark-mode);
+  color: #fff;
+}
+
+.normal {
+  background: var(--main);
+  color: var(--text-main);
+}
+
+.custom-banner {
+  .banner {
+    &.swiper {
+      padding-bottom: 12px !important;
+      max-height: 600px;
+      img {
+      object-fit: cover;
+      max-height: 600px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+        background: var(--text-second);
+        height: 72px;
+        width: 48px;
+        top: 42%;
+        border-radius: 4px;
+
+        &::after {
+          color: #fff;
+        }
+      }
+
+      .swiper-button-next {
+        right: 0;
+      }
+
+      .swiper-button-prev {
+        left: 0;
+      }
+
+      &:hover {
+
+        .swiper-button-next,
+        .swiper-button-prev {
+          display: flex;
+
+        }
+      }
+
+      .swiper-pagination {
+        bottom: 0;
+
+        .swiper-pagination-bullet {
+          height: 6px;
+          width: 6px;
+        }
+
+        .swiper-pagination-bullet-active {
+          border-radius: 4px;
+          width: 16px;
+          background: var(--text-navbar);
+        }
+      }
+    }
+  }
+}
+
+.list-disc-custom {
+  &::marker {
+    color: var(--text-third);
+  }
+}
