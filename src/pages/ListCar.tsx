@@ -1,16 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Brands = () => {
+const ListCar = () => {
     return (
         <>
             <Helmet>
                 <meta charSet='utf-8' />
-                <title>Các hãng xe - Salon Hà Nội 1</title>
+                <title>Tất cả xe - Salon Hà Nội 1</title>
             </Helmet>
-            <div>Các hãng xe</div>
+            <div>Tất cả xe</div>
         </>
     );
 };
 
-export default Brands;
+export default ListCar;

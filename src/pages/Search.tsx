@@ -1,16 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import SearchComponent from '../components/Search';
 
-const Brands = () => {
+const Search = () => {
     return (
         <>
             <Helmet>
                 <meta charSet='utf-8' />
-                <title>Các hãng xe - Salon Hà Nội 1</title>
+                <title>Tìm kiếm - Salon Hà Nội 1</title>
             </Helmet>
-            <div>Các hãng xe</div>
+            <SearchComponent />
         </>
     );
 };
 
-export default Brands;
+export default Search;

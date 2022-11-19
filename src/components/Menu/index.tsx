@@ -39,7 +39,7 @@ const Menu = () => {
                     <div
                         className={`${
                             openSetting ? 'flex' : 'hidden'
-                        } absolute bottom-[-80px] right-[-40px] shadow-main bg-white rounded-sm overflow-hidden`}
+                        } absolute bottom-[-80px] right-[-40px] drop-shadow-sm bg-white rounded-sm overflow-hidden`}
                         ref={settingRef}
                     >
                         <ul

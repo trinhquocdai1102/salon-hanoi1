@@ -7,7 +7,7 @@ interface MenuContextState {
     setOpenMenu: Function;
     darkMode: boolean;
     setDarkMode: Function;
-    navbarChange: boolean;
+    isHomepage: boolean;
 }
 
 export const MenuContext = React.createContext<MenuContextState>({
@@ -16,7 +16,7 @@ export const MenuContext = React.createContext<MenuContextState>({
     setOpenMenu: () => {},
     darkMode: false,
     setDarkMode: () => {},
-    navbarChange: false,
+    isHomepage: false,
 });
 
 export const MenuContextProvider: FC<{ children: React.ReactNode }> = ({
@@ -24,16 +24,15 @@ export const MenuContextProvider: FC<{ children: React.ReactNode }> = ({
 }) => {
     const menuRef = useRef<HTMLDivElement | any>();
     const [openMenu, setOpenMenu] = useState(false);
-    const [navbarChange, setNavbarChange] = useState(false);
+    const [isHomepage, setIsHomepage] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const location = useLocation();
-    console.log(location);
 
     useEffect(() => {
-        if (location.pathname !== '/') {
-            setNavbarChange(true);
+        if (location.pathname === '/') {
+            setIsHomepage(true);
         } else {
-            setNavbarChange(false);
+            setIsHomepage(false);
         }
     }, [location]);
 
@@ -43,7 +42,7 @@ export const MenuContextProvider: FC<{ children: React.ReactNode }> = ({
         setOpenMenu,
         darkMode,
         setDarkMode,
-        navbarChange,
+        isHomepage,
     };
 
     return (

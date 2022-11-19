@@ -9,6 +9,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { imgNotFound } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { GiSteeringWheel } from 'react-icons/gi';
+import { ROUTES } from '../../routes/routes';
 
 interface BannerProps {
     banners: any[];
@@ -53,7 +54,7 @@ const Banner: FC<BannerProps> = ({ banners }) => {
                                 </p>
                                 <div className='flex items-center justify-end'>
                                     <Link
-                                        to='#'
+                                        to={`${ROUTES.carDetail}/${banner.key}`}
                                         className='flex items-center gap-2 bg-top-navbar p-3 rounded-sm'
                                     >
                                         <span>

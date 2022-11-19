@@ -3,6 +3,19 @@ import { useLocation } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
 import { Audio } from 'react-loader-spinner';
 import RouterManager from './routes';
+import Scrollbar from 'smooth-scrollbar';
+import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+
+const overscrollOptions = {
+    enable: false,
+    damping: 1,
+};
+
+const options = {
+    plugins: {
+        overscroll: { ...overscrollOptions },
+    },
+};
 
 function App() {
     const location = useLocation();
@@ -17,6 +30,15 @@ function App() {
         setTimeout(() => {
             setLoading(false);
         }, 1000);
+    }, []);
+
+    useEffect(() => {
+        Scrollbar.use(OverscrollPlugin);
+        Scrollbar.init(document.body, options);
+
+        return () => {
+            if (Scrollbar) Scrollbar.destroy(document.body);
+        };
     }, []);
 
     return (

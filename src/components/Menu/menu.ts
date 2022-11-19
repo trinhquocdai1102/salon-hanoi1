@@ -1,7 +1,11 @@
 import { AiOutlineHome } from 'react-icons/ai';
 import { RiCarFill, RiSearchLine } from 'react-icons/ri';
-import { MdRecommend } from 'react-icons/md';
-import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+import { MdLocationOn, MdRecommend } from 'react-icons/md';
+import {
+    BsFillMoonFill,
+    BsFillSunFill,
+    BsFillTelephoneFill,
+} from 'react-icons/bs';
 import {
     SiChevrolet,
     SiFord,
@@ -14,30 +18,27 @@ import {
     SiRenault,
     SiToyota,
 } from 'react-icons/si';
+import { v4 as uuidv4 } from 'uuid';
 
 export const menus = [
     {
         name: 'Tìm Kiếm',
         path: '/search',
-        icon: RiSearchLine,
         background: '#2ecc71',
     },
     {
         name: 'Trang Chủ',
         path: '/',
-        icon: AiOutlineHome,
         background: '#3498db',
     },
     {
         name: 'Hãng xe',
         path: '/brands',
-        icon: RiCarFill,
         background: '#f1c40f',
     },
     {
         name: 'Tư vấn',
         path: '/advise',
-        icon: MdRecommend,
         background: '#e67e22',
     },
 ];
@@ -138,5 +139,29 @@ export const sidebars = [
         parentPath: null,
         child: null,
         background: '#e67e22',
+    },
+];
+
+export const topNav = [
+    {
+        key: uuidv4(),
+        icon: MdLocationOn,
+        content: '1B Nguyễn Văn Huyên, Nghĩa Đô, Cầu Giấy, Hà Nội',
+        phone: null,
+    },
+    {
+        key: uuidv4(),
+        icon: BsFillTelephoneFill,
+        content: null,
+        phone: [
+            {
+                key: uuidv4(),
+                phoneNumber: '0968680977',
+            },
+            {
+                key: uuidv4(),
+                phoneNumber: '0984965663',
+            },
+        ],
     },
 ];

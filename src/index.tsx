@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
+import 'rc-slider/assets/index.css';
 import App from './App';
 import { SWRConfig } from 'swr';
 import { Toaster } from 'react-hot-toast';

@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             colors: {
                 main: 'var(--main)',
+                second: 'var(--second)',
                 navbar: 'var(--navbar)',
                 'top-navbar': 'var(--top-navbar)',
                 'txt-main': 'var(--text-main)',
@@ -12,6 +13,7 @@ module.exports = {
                 'txt-third': 'var(--text-third)',
                 'txt-navbar': 'var(--text-navbar)',
                 'txt-link': 'var(--text-link)',
+                'search-icon': 'var(--search-icon)',
             },
         },
         container: {
@@ -25,5 +27,5 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/line-clamp')],
 };

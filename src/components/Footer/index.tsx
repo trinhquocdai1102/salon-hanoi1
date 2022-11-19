@@ -9,7 +9,7 @@ const Footer = () => {
                 <Link to='#' className='block w-[200px] h-[200px]'>
                     <img
                         src='./images/logo-test.png'
-                        alt=''
+                        alt='logo'
                         className='object-cover'
                     />
                 </Link>

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { avatarDefault } from '../../utils/constants';
+import { ROUTES } from '../../routes/routes';
 
 interface LogoProps {
     width: string | number;
@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo: FC<LogoProps> = ({ width, height }) => {
     return (
-        <Link to='/'>
+        <Link to={ROUTES.home}>
             <div
                 style={{ width: width, height: height }}
                 className='rounded-md flex items-center justify-center'

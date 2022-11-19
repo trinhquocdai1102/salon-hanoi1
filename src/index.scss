@@ -6,7 +6,8 @@
 :root {
   // Background
   --main: rgba(28, 30, 32, 0.1);
-  --dark-mode:rgba(28, 30, 32, 0.5);
+  --second: rgba(28, 30, 32, 0.02);
+  --dark-mode:rgba(28, 30, 32, 0.88);
   --top-navbar: #c1121f;
   --navbar: rgba(234, 237, 240, .8);
 
@@ -16,6 +17,9 @@
   --text-third: #ccc;
   --text-navbar: #ee9b00;
   --text-link: #2DAAED;
+
+  // Other
+  --search-icon: #fff
 }
 
 * {
@@ -26,6 +30,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+  height: 100vh;
 
   &:not(svg) {
     color: var(--text-main);
@@ -42,13 +48,6 @@ button:disabled {
   color: var(--text-main);
 }
 
-select {
-  &.no-arrow {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-}
-
 .dark-mode {
   background: var(--dark-mode);
   color: #fff;
@@ -57,6 +56,12 @@ select {
 .normal {
   background: var(--main);
   color: var(--text-main);
+}
+
+.container {
+  @media (min-width: 1536px){
+    max-width: 1200px;
+  }
 }
 
 .custom-banner {
@@ -121,5 +126,50 @@ select {
 .list-disc-custom {
   &::marker {
     color: var(--text-third);
+  }
+}
+
+.search {
+  &:hover {
+    input {
+      outline: 1px solid var(--top-navbar);
+    }
+    .search-icon {
+      color: var(--search-icon);
+    }
+    .search-icon-bg {
+      left: 0;
+    }
+  }
+}
+
+div {
+  &[class*="control"]{
+    cursor: pointer;
+  }
+}
+
+div {
+  &[class*="indicatorContainer"] {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.search-option {
+  div {
+    &[class*="control"] {
+      border: 0;
+      background: var(--main);
+      padding-left: 12px;
+    }
+    &[class*="menu"] {
+      margin-top: 4px !important;
+    }
+  }
+  span {
+    &[class*="indicatorSeparator"] {
+      display: none !important;
+    }
   }
 }
