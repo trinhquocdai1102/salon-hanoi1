@@ -6,14 +6,30 @@ module.exports = {
             colors: {
                 main: 'var(--main)',
                 second: 'var(--second)',
+                third: 'var(--third)',
                 navbar: 'var(--navbar)',
                 'top-navbar': 'var(--top-navbar)',
                 'txt-main': 'var(--text-main)',
-                'txt-second': 'var(--text-second)',
                 'txt-third': 'var(--text-third)',
                 'txt-navbar': 'var(--text-navbar)',
+                'txt-highlight': 'var(--text-highlight)',
                 'txt-link': 'var(--text-link)',
                 'search-icon': 'var(--search-icon)',
+            },
+            height: {
+                'top-navbar': 'var(--top-navbar-h)',
+                navbar: 'var(--navbar-h)',
+            },
+            margin: {
+                'top-navbar': 'var(--m-top-navbar)',
+                navbar: 'var(--m-navbar)',
+            },
+            lineHeight: {
+                'top-navbar': 'var(--top-navbar-h)',
+                navbar: 'var(--navbar-h)',
+            },
+            minHeight: {
+                navbar: 'var(--navbar-h)',
             },
         },
         container: {

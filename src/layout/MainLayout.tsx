@@ -15,8 +15,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     const { isTablet } = useInnerWidth();
     const { scrollY } = useWindowScrollPositions();
 
-    const { setOpenMenu, menuRef, darkMode, isHomepage } =
-        useContext(MenuContext);
+    const { setOpenMenu, menuRef, isHomepage } = useContext(MenuContext);
 
     useEffect(() => {
         const handler = (e: { target: any }) => {
@@ -31,15 +30,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     });
 
     return (
-        <div
-            className={`${
-                isHomepage && !darkMode
-                    ? 'bg-main'
-                    : darkMode
-                    ? 'dark-mode'
-                    : 'bg-second'
-            } `}
-        >
+        <div className='bg-main'>
             {!isTablet && (
                 <div className='flex items-center justify-between py-4 px-4 text-[28px] border-b'>
                     <div>
@@ -58,19 +49,19 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
                         </div>
                         <div
                             className={`${
-                                scrollY >= 100 && !isHomepage
+                                isHomepage && scrollY >= 500
                                     ? 'fixed bg-top-navbar text-white top-0 left-0 right-0'
-                                    : scrollY >= 100 && isHomepage
+                                    : !isHomepage && scrollY >= 300
                                     ? 'fixed bg-white text-txt-main top-0 left-0 right-0'
-                                    : 'bg-navbar text-txt-main relative'
-                            } z-[999]`}
+                                    : 'bg-white text-txt-main relative'
+                            } z-[998] drop-shadow-lg`}
                         >
                             <Menu />
                         </div>
                     </div>
                 )}
             </div>
-            <div className='min-h-screen'>{children}</div>
+            <div className='relative'>{children}</div>
             <div>
                 <Footer />
             </div>

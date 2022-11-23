@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { MenuContext } from '../../context/MenuContext';
 import Select from 'react-select';
 import { carBrand, condition, maxODO, sortBy } from './search';
 import { AiFillCar } from 'react-icons/ai';
@@ -9,12 +8,15 @@ import CurrencyFormat from 'react-currency-format';
 import { cars } from '../../fakedata/Home';
 import { ROUTES } from '../../routes/routes';
 import { Link } from 'react-router-dom';
+import CarInfo from './CarInfo';
+import Pagination from '../Common/Pagination';
 
 const SearchComponent = () => {
     const yearBegin = 2010;
     const [year, setYear] = useState<any[]>([]);
-    const { darkMode } = useContext(MenuContext);
     const [searching, setSearching] = useState(false);
+    const [fake, setFake] = useState<any>([]);
+
     const [searchValue, setSearchValue] = useState<any>({
         condition: {
             label: 'Xe hiện có',
@@ -35,8 +37,6 @@ const SearchComponent = () => {
         price: [100000000, 1000000000],
     });
 
-    console.log(year[0]);
-
     const handleResetAll = () => {
         setSearchValue({
             condition: {
@@ -54,6 +54,7 @@ const SearchComponent = () => {
             price: [100000000, 1000000000],
         });
     };
+    console.log(year);
 
     useEffect(() => {
         const now = new Date().getFullYear();
@@ -62,6 +63,12 @@ const SearchComponent = () => {
             year.push({ label: value, value: value });
         }
         setYear(year);
+    }, []);
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos').then((res) =>
+            res.json().then((data) => setFake(data))
+        );
     }, []);
 
     return (
@@ -93,10 +100,10 @@ const SearchComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex flex-col md:flex-row gap-2 mt-[20px]'>
-                    <div className='relative w-full md:w-1/3 '>
-                        <div className='absolute right-0 left-0 search-option w-full flex flex-col gap-4 px-5 pb-5 pt-[52px] bg-white rounded-sm drop-shadow-lg'>
-                            <div className='absolute flex items-center justify-center bg-top-navbar left-0 right-0 top-[-48px] h-[80px]'>
+                <div className='flex flex-col sm:flex-row gap-2 mt-[20px]'>
+                    <div className='relative w-full md:w-1/3'>
+                        <div className='search-option w-full flex flex-col gap-4 px-5 pb-5 pt-[52px] bg-white rounded-sm drop-shadow-lg'>
+                            <div className='flex items-center justify-center bg-top-navbar left-0 right-0 top-[-48px] h-[80px]'>
                                 <span className='flex items-center gap-2  text-white'>
                                     <AiFillCar className='text-[32px]' />
                                     <span className='font-semibold text-base'>
@@ -168,13 +175,13 @@ const SearchComponent = () => {
                                     onClick={handleResetAll}
                                     className='bg-top-navbar px-5 py-3 w-2/3 rounded-sm hover:opacity-90'
                                 >
-                                    Đặt lại tìm kiếm
+                                    Đặt lại
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className='w-full md:w-2/3 pl-5'>
-                        <div className='flex items-center border-b border-main gap-2 pb-[20px]'>
+                    <div className='w-full pl-5 md:w-2/3'>
+                        <div className='flex items-center border-b border-main gap-2 pb-[20px] mt-[20px] sm:mt-0'>
                             <span className='text-sm'>Lọc theo:</span>
                             <div className='search-option text-xs'>
                                 <Select
@@ -195,37 +202,30 @@ const SearchComponent = () => {
                         </div>
                         <div className='pt-5'>
                             <div className='flex flex-col gap-2'>
-                                {cars.map((car) => {
+                                {cars.slice(0, 2).map((car) => {
                                     return (
                                         <Link
                                             to={`${ROUTES.carDetail}/${car.key}`}
-                                            className='flex gap-5 [&:not(:first-child)]:pt-[40px] border-b border-main pb-[20px]'
+                                            className='sm:flex flex-col hidden md:flex-row gap-x-2 md:gap-x-5 [&:not(:first-child)]:pt-[20px] md:[&:not(:first-child)]:pt-[40px] border-b border-main pb-0 md:pb-[20px] last:border-0'
                                             key={car.key}
                                         >
-                                            <div className='max-w-[260px]'>
+                                            <div className='max-w-[260px] xl:max-w-[280px]'>
                                                 <img
                                                     src={car.imageUrl}
                                                     alt=''
-                                                    className='rounded-sm'
+                                                    className='rounded-sm w-full object-cover h-[124px] md:h-auto'
                                                 />
                                             </div>
-                                            <div>
-                                                <h1 className='font-bold text-xl'>
-                                                    {car.name}
-                                                </h1>
-                                                <p>
-                                                    <span className='mr-2'>
-                                                        Giá:
-                                                    </span>
-                                                    {car.price}
-                                                </p>
-                                            </div>
+                                            <CarInfo car={car} />
                                         </Link>
                                     );
                                 })}
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className='mt-[20px]'>
+                    <Pagination data={cars} />
                 </div>
             </div>
         </div>

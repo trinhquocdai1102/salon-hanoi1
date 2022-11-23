@@ -1,9 +1,8 @@
 import Error from '../components/Common/Error';
-import Advise from '../pages/Advise';
-import Brands from '../pages/Brands';
+import Contact from '../pages/Contact';
+import AboutUs from '../pages/AboutUs';
 import CarDetail from '../pages/Detail/CarDetail';
 import Home from '../pages/Home';
-import ListCar from '../pages/ListCar';
 import Search from '../pages/Search';
 
 export const PublicRoutes = [
@@ -17,15 +16,11 @@ export const PublicRoutes = [
     },
     {
         path: '/brands',
-        element: <Brands />,
+        element: <AboutUs />,
     },
     {
-        path: '/list-car',
-        element: <ListCar />,
-    },
-    {
-        path: '/advise',
-        element: <Advise />,
+        path: '/contact',
+        element: <Contact />,
     },
     {
         path: '/car-detail/:key',

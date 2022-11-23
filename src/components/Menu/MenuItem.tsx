@@ -14,34 +14,20 @@ interface MenuItemProps {
 }
 
 const MenuItem: FC<MenuItemProps> = ({ item }) => {
-    const { isHomepage } = useContext(MenuContext);
     const { scrollY } = useWindowScrollPositions();
     const location = useLocation();
 
     return (
         <li
-            className={`text-xs sm:text-sm uppercase hover:bg-top-navbar hover:text-txt-navbar ${
-                item?.path === location.pathname && isHomepage
-                    ? 'bg-top-navbar text-txt-navbar'
-                    : location.pathname === item?.path &&
-                      !isHomepage &&
-                      scrollY >= 100
-                    ? 'bg-white text-txt-main'
-                    : location.pathname === item?.path &&
-                      !isHomepage &&
-                      scrollY < 100
-                    ? 'bg-top-navbar text-txt-navbar'
-                    : ''
+            className={`px-[20px] font-medium ${
+                item?.path === location.pathname ? 'text-txt-navbar' : ''
             }`}
-            key={item.name}
         >
             <Link
                 to={item.path ? item.path : '#'}
-                className='flex items-center justify-between p-2 md:p-4 min-h-[52px] font-semibold px-2'
+                className='block font-medium text-[13px] uppercase ease'
             >
-                <div className='flex items-center '>
-                    <span className='font-bold'>{item.name}</span>
-                </div>
+                {item.name}
             </Link>
         </li>
     );

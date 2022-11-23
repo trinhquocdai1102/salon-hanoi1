@@ -22,37 +22,24 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const menus = [
     {
-        name: 'Tìm Kiếm',
-        path: '/search',
-        background: '#2ecc71',
-    },
-    {
         name: 'Trang Chủ',
         path: '/',
         background: '#3498db',
     },
     {
-        name: 'Hãng xe',
-        path: '/brands',
+        name: 'Tìm Kiếm',
+        path: '/search',
+        background: '#2ecc71',
+    },
+    {
+        name: 'Về chúng tôi',
+        path: '/about-us',
         background: '#f1c40f',
     },
     {
         name: 'Tư vấn',
-        path: '/advise',
+        path: '/contact',
         background: '#e67e22',
-    },
-];
-
-export const settings = [
-    {
-        name: 'Sáng',
-        darkMode: false,
-        icon: BsFillSunFill,
-    },
-    {
-        name: 'Tối',
-        darkMode: true,
-        icon: BsFillMoonFill,
     },
 ];
 
@@ -134,7 +121,7 @@ export const sidebars = [
     },
     {
         name: 'Tư vấn',
-        path: '/advise',
+        path: '/contact',
         icon: MdRecommend,
         parentPath: null,
         child: null,

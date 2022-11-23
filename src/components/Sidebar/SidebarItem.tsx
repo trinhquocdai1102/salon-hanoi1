@@ -6,14 +6,12 @@ const SidebarItem = () => {
         // <li
         //     className={`p-2 menu-parent ${
         //         item?.path === location.pathname ||
-        //         (item?.parentPath !== null &&
-        //             location.pathname.includes(item?.parentPath) &&
-        //             darkMode)
+        //         item?.parentPath !== null &&
+        //             location.pathname.includes(item?.parentPath)
         //             ? 'bg-gray-200 text-black border-l-cyan-500 border-l-[3px] rounded-sm'
         //             : location.pathname === item?.path ||
-        //               (item?.parentPath !== null &&
-        //                   location.pathname.includes(item?.parentPath) &&
-        //                   !darkMode)
+        //               item?.parentPath !== null &&
+        //                   location.pathname.includes(item?.parentPath)
         //             ? 'bg-gray-200 border-l-cyan-500 border-l-[3px] rounded-sm'
         //             : ''
         //     }`}
@@ -41,7 +39,7 @@ const SidebarItem = () => {
         //         <div className='bg-white absolute mt-2'>
         //             <ul
         //                 className={`${
-        //                     darkMode ? 'dark-mode' : 'normal'
+        //                      ? 'dark-mode' : 'normal'
         //                 } menu-child`}
         //                 onClick={(e) => e.stopPropagation()}
         //             >
@@ -50,14 +48,14 @@ const SidebarItem = () => {
         //                         onClick={(e) => e.stopPropagation()}
         //                         key={p.name}
         //                         className={`${
-        //                             location.pathname === p.path && darkMode
+        //                             location.pathname === p.path &&
         //                                 ? 'bg-gray-200 text-black'
         //                                 : location.pathname === p.path &&
-        //                                   !darkMode
+        //                                   !
         //                                 ? 'bg-gray-200 rounded-sm'
         //                                 : ''
         //                         } ${
-        //                             darkMode
+        //
         //                                 ? 'hover:bg-white hover:text-black'
         //                                 : 'hover:bg-txt-third'
         //                         }`}

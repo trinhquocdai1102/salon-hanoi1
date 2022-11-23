@@ -5,8 +5,6 @@ interface MenuContextState {
     menuRef: any;
     openMenu: boolean;
     setOpenMenu: Function;
-    darkMode: boolean;
-    setDarkMode: Function;
     isHomepage: boolean;
 }
 
@@ -14,8 +12,6 @@ export const MenuContext = React.createContext<MenuContextState>({
     menuRef: [],
     openMenu: false,
     setOpenMenu: () => {},
-    darkMode: false,
-    setDarkMode: () => {},
     isHomepage: false,
 });
 
@@ -25,7 +21,6 @@ export const MenuContextProvider: FC<{ children: React.ReactNode }> = ({
     const menuRef = useRef<HTMLDivElement | any>();
     const [openMenu, setOpenMenu] = useState(false);
     const [isHomepage, setIsHomepage] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -40,8 +35,6 @@ export const MenuContextProvider: FC<{ children: React.ReactNode }> = ({
         menuRef,
         openMenu,
         setOpenMenu,
-        darkMode,
-        setDarkMode,
         isHomepage,
     };
 

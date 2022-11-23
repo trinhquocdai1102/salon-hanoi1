@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { segments } from './home';
-import Banner from '../Slider/Banner';
-import { cars, newestBanner } from '../../fakedata/Home';
+import { cars } from '../../fakedata/Home';
 import GridLayout from '../../layout/GridLayout';
 import { ROUTES } from '../../routes/routes';
 
@@ -11,9 +10,38 @@ const HomeComponent = () => {
 
     return (
         <>
-            <div className='w-full mt-0 md:mt-[-52px] bg-main pb-[120px] min-h-screen'>
-                <div className='custom-banner relative'>
-                    <Banner banners={newestBanner} />
+            <div className='w-full mt-0 md:mt-navbar bg-main pb-[120px] min-h-screen'>
+                <div className='relative' id='top'>
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        id='bg-video'
+                        className='min-w-full min-h-screen max-w-full max-h-full object-cover z-[-1]'
+                        src='./images/video.mp4'
+                    />
+
+                    <div className='absolute bg-third top-0 left-0 right-0 bottom-0 w-full'>
+                        <div className='absolute w-4/5 top-0 right-0 left-0 bottom-0 flex items-center justify-center mx-auto'>
+                            <div className='text-center text-white'>
+                                <h6 className='text-xl'>Salon Hà Nội 1</h6>
+                                <h2 className='text-[60px] lg:text-[76px] font-extrabold uppercase'>
+                                    <span className='text-txt-highlight'>
+                                        Cửa hàng bán xe
+                                    </span>{' '}
+                                    tốt nhất!
+                                </h2>
+                                <div className='main-button mt-4'>
+                                    <Link
+                                        to='/contact'
+                                        className='bg-txt-highlight py-3 px-4 rounded-sm'
+                                    >
+                                        Liên hệ ngay
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div className='bg-top-navbar'>
@@ -43,7 +71,7 @@ const HomeComponent = () => {
                         {chooseSegment === 1 ? (
                             <>
                                 <GridLayout col={4}>
-                                    {cars.map((car) => {
+                                    {cars.slice(0, 8).map((car) => {
                                         return (
                                             <div
                                                 key={car.key}
@@ -81,7 +109,7 @@ const HomeComponent = () => {
                                 </GridLayout>
                                 <div className='w-full flex items-center justify-center mt-[40px]'>
                                     <Link
-                                        to={ROUTES.listCar}
+                                        to={ROUTES.search}
                                         className='p-2 bg-top-navbar text-white font-medium uppercase rounded-sm'
                                     >
                                         Tất cả sản phẩm

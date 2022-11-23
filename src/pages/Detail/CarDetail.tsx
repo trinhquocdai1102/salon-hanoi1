@@ -19,7 +19,7 @@ const CarDetail = () => {
             {!car ? (
                 <Error />
             ) : (
-                <div className='pt-[20px]'>
+                <div className='pt-[20px] min-h-screen'>
                     <div className='container'>
                         <div className='mb-[40px] xl:mb-0 w-full relative'>
                             <div className='xl:w-2/3 mr-4 xl:max-w-[660px]'>

@@ -1,15 +1,11 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
-import { AiOutlineSetting } from 'react-icons/ai';
-import { settings, menus } from './menu';
-import { MenuContext } from '../../context/MenuContext';
-import Setting from './Setting';
+import React, { useState, useRef, useEffect } from 'react';
 import MenuItem from './MenuItem';
+import Logo from './Logo';
+import { menus } from './menu';
 
 const Menu = () => {
     const settingRef = useRef<HTMLDivElement | any>();
     const [openSetting, setOpenSetting] = useState(false);
-    const { darkMode } = useContext(MenuContext);
-
     useEffect(() => {
         const handler = (e: { target: any }) => {
             if (!settingRef?.current?.contains(e.target)) {
@@ -23,43 +19,24 @@ const Menu = () => {
     });
 
     return (
-        <div className='container'>
-            <div className='flex items-center justify-between'>
-                <ul className={`text-[13px] flex items-center justify-between`}>
-                    {menus.map((menu) => (
-                        <MenuItem key={menu.name} item={menu} />
-                    ))}
-                </ul>
-                <div
-                    className='relative setting ml-6 flex items-center gap-1 text-txt-main font-medium cursor-pointer'
-                    onClick={() => setOpenSetting(true)}
-                >
-                    <AiOutlineSetting className='text-xl' />
-                    <span className='text-xs md:text-sm'>Chủ đề</span>
-                    <div
-                        className={`${
-                            openSetting ? 'flex' : 'hidden'
-                        } absolute bottom-[-80px] right-[-40px] drop-shadow-sm bg-white rounded-sm overflow-hidden`}
-                        ref={settingRef}
-                    >
-                        <ul
-                            className={`${openSetting ? 'block' : 'hidden'} ${
-                                darkMode ? 'dark-mode' : 'normal'
-                            } flex flex-col`}
-                        >
-                            {settings.map((setting) => {
-                                return (
-                                    <Setting
-                                        key={setting.name}
-                                        item={setting}
-                                    />
-                                );
-                            })}
-                        </ul>
+        <header className='leading-navbar min-h-navbar'>
+            <div className='container'>
+                <div className='flex w-full'>
+                    <div className='w-full min-h-navbar'>
+                        <nav className='flex items-center justify-between'>
+                            <Logo width={100} height={40} />
+                            <ul className='flex items-center justify-start'>
+                                {menus.map((menu) => {
+                                    return (
+                                        <MenuItem item={menu} key={menu.name} />
+                                    );
+                                })}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     );
 };
 

@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { topNav } from './menu';
-import Logo from './Logo';
 
 const TopMenu = () => {
     return (
-        <div className='flex items-center justify-start container h-[60px]'>
-            <div className='text-white text-sm flex items-center gap-2'>
+        <div className='flex items-center justify-start container h-top-navbar'>
+            <div className='text-white text-sm flex items-center gap-6'>
                 {topNav.map((item) => {
                     return (
                         <div className='flex items-center gap-2' key={item.key}>
                             <item.icon className='text-txt-navbar text-[36px] border border-txt-navbar rounded-full p-2' />
                             {item.content && <p>{item.content}</p>}
                             {item.phone && (
-                                <p className='flex flex-col gap-1'>
+                                <p className='flex items-center'>
                                     {item.phone?.map((phone) => {
                                         return (
-                                            <span key={phone.key}>
-                                                {phone?.phoneNumber}
-                                            </span>
+                                            <Fragment key={phone.key}>
+                                                <span>
+                                                    {phone?.phoneNumber}
+                                                </span>
+                                                <span className='last:hidden mx-1'>
+                                                    -
+                                                </span>
+                                            </Fragment>
                                         );
                                     })}
                                 </p>
