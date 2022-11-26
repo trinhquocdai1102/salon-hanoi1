@@ -1,12 +1,12 @@
-import React, { ReactElement, useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { contactForm } from './contact';
 import toast from 'react-hot-toast';
-import Banner from '../Slider/Banner';
+import Banner from '../../components/Slider/Banner';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 import { MdLocationPin } from 'react-icons/md';
-import Map from '../Map';
+import Map from '../../components/Map';
 
 interface IContact {
     key: string;
@@ -28,7 +28,6 @@ const ContactComponent = () => {
     const [value, setValue] = useState(initialValue);
     const [loading, setLoading] = useState(false);
     const formRef = useRef<any>(null);
-    const key = 'AIzaSyC-nlGzaiSYBi5BGzP42iJ7Riy-UpWT0dc';
 
     const handleChangeValueInput = (e: any, item: IContact) => {
         if (item.value === 'user_name') {
@@ -77,24 +76,25 @@ const ContactComponent = () => {
             <div className='py-[60px]'>
                 <div className='container'>
                     <h1 className='uppercase text-[40px] text-center mb-[40px]'>
-                        Thông tin{' '}
-                        <span className='text-txt-highlight'>liên hệ</span>
+                        Thông tin
+                        <span className='text-txt-highlight ml-2'>liên hệ</span>
                     </h1>
                     <div className='flex justify-between md:flex-row flex-col gap-4'>
                         <div className='w-full md:w-1/3 text-center'>
                             <div className='bg-txt-highlight w-[60px] h-[60px] text-[24px] flex items-center justify-center text-white rounded-md mx-auto'>
                                 <FaPhoneAlt />
                             </div>
-                            <p className='max-w-[360px] my-[16px] mx-auto'>
-                                0968680977
-                            </p>
+                            <div className='my-[16px] mx-auto'>
+                                <p>0968680977</p>
+                                <p>0984965663</p>
+                            </div>
                         </div>
                         <div className='w-full md:w-1/3 text-center'>
                             <div className='bg-txt-highlight w-[60px] h-[60px] text-[24px] flex items-center justify-center text-white rounded-md mx-auto'>
                                 <FiMail />
                             </div>
                             <p className='max-w-[360px] my-[16px] mx-auto'>
-                                trinhquocdai1102@gmail.com
+                                nov10th83@gmail.com
                             </p>
                         </div>
                         <div className='w-full md:w-1/3 text-center'>
@@ -109,19 +109,19 @@ const ContactComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex'>
-                <div className='w-full md:w-1/2'>
+            <div className='flex flex-col xl:flex-row'>
+                <div className='w-full xl:w-1/2'>
                     <Map />
                 </div>
                 <div
-                    className='w-full md:w-1/2'
+                    className='w-full xl:w-1/2'
                     style={{
                         background:
                             "url('./images/contact-form-bg.jpg') center center no-repeat",
                         backgroundSize: 'cover',
                     }}
                 >
-                    <div className='bg-third w-full h-full flex justify-center items-center'>
+                    <div className='bg-third w-full h-full flex justify-center items-center min-h-[600px]'>
                         <div className='bg-white w-4/5 max-w-[500px] p-[24px] md:p-[32px] rounded-md'>
                             <form ref={formRef} onSubmit={handleSendEmail}>
                                 <div className='w-full'>

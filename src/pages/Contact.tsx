@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import ContactComponent from '../components/Contact';
+import ContactComponent from '../Containers/Contact';
 
 const Contact = () => {
     return (

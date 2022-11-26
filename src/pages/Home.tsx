@@ -1,4 +1,4 @@
-import HomeComponent from '../components/Home';
+import HomeComponent from '../Containers/Home';
 import { Helmet } from 'react-helmet';
 
 const Home = () => {

@@ -24,7 +24,7 @@ const Menu = () => {
                 <div className='flex w-full'>
                     <div className='w-full min-h-navbar'>
                         <nav className='flex items-center justify-between'>
-                            <Logo width={100} height={40} />
+                            <Logo width='auto' height={76} />
                             <ul className='flex items-center justify-start'>
                                 {menus.map((menu) => {
                                     return (

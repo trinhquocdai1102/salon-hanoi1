@@ -15,7 +15,7 @@ const GridLayout: FC<GridLayoutProps> = ({ children, col, gapX, gapY }) => {
                     ? 'xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-4'
                     : col === 3
                     ? 'xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2'
-                    : 'xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-4'
+                    : 'xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2'
             }`}
             style={{
                 columnGap: gapX ? `${gapX}px` : '4px',

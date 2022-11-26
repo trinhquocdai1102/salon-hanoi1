@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { BsChevronDown } from 'react-icons/bs';
 import GridLayout from '../../layout/GridLayout';
-import CarInfo from '../Search/CarInfo';
+import CarInfo from '../../Containers/Search/CarInfo';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
 

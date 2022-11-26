@@ -9,7 +9,7 @@ import { cars } from '../../fakedata/Home';
 import { ROUTES } from '../../routes/routes';
 import { Link } from 'react-router-dom';
 import CarInfo from './CarInfo';
-import Pagination from '../Common/Pagination';
+import Pagination from '../../components/Common/Pagination';
 
 const SearchComponent = () => {
     const yearBegin = 2010;

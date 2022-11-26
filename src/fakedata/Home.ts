@@ -23,13 +23,24 @@ export const newestBanner = [
 
 export const cars = [
     {
-        key: uuidv4(),
+        key: 'test1234',
         name: 'Honda CRV 2.4 AT - 2014',
         imageUrl:
             'https://s.bonbanh.com/uploads/users/14856/car/4673951/m_1667700908.777.jpeg',
         price: '595 triệu',
         youtubeUrl: 'VE4mDr5BoVE',
         desc: 'đây là xe Honda CRV 2.4 AT - 2014 v.v.v Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        images: [
+            { image: 'https://i.imgur.com/VeRkHtX.jpg' },
+            { image: 'https://i.imgur.com/bZk3ghZ.jpg' },
+            { image: 'https://i.imgur.com/SlTNZO2.jpg' },
+            { image: 'https://i.imgur.com/XmbNcYv.jpg' },
+            { image: 'https://i.imgur.com/Xw7OEsH.jpg' },
+            { image: 'https://i.imgur.com/kd0cqhm.jpg' },
+            { image: 'https://i.imgur.com/PVTNW9c.jpg' },
+            { image: 'https://i.imgur.com/0eRqylV.jpg' },
+            { image: 'https://i.imgur.com/8V6uasI.jpg' },
+        ],
     },
     {
         key: uuidv4(),

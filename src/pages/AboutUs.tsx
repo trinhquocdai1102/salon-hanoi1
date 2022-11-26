@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import AboutComponent from '../Containers/About';
 
 const AboutUs = () => {
     return (
@@ -8,7 +9,7 @@ const AboutUs = () => {
                 <meta charSet='utf-8' />
                 <title>Các hãng xe - Salon Hà Nội 1</title>
             </Helmet>
-            <div>Các hãng xe</div>
+            <AboutComponent />
         </>
     );
 };

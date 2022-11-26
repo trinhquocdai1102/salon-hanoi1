@@ -15,7 +15,7 @@ export const PublicRoutes = [
         element: <Search />,
     },
     {
-        path: '/brands',
+        path: '/about-us',
         element: <AboutUs />,
     },
     {

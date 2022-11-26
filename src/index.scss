@@ -9,7 +9,7 @@
   --second: rgba(28, 30, 32, 0.02);
   --third: rgba(35, 45, 57, 0.8);
   --dark-mode:rgba(28, 30, 32, 0.88);
-  --top-navbar: #c1121f;
+  --top-navbar: #c0222d;
   --navbar: rgba(250, 250, 250, 0.1);
 
   // Text
@@ -17,7 +17,8 @@
   --text-second: rgba(28, 30, 32, 0.5);
   --text-third: #ccc;
   --text-navbar: #ee9b00;
-  --text-highlight: #ed563b;
+  --text-highlight: #ec4b2e;
+  --text-footer: rgb(192, 192, 11);
   --text-link: #2DAAED;
 
   // Other
@@ -170,7 +171,9 @@ div {
       padding-left: 12px;
     }
     &[class*="menu"] {
-      margin-top: 4px !important;
+      min-width: 160px;
+      margin: 0;
+      padding: 0;
     }
   }
   span {
@@ -301,5 +304,66 @@ div {
       background: var(--text-highlight);
       color: #fff;
     }
+  }
+}
+.react-slider {
+  width: 50% !important;
+  @media (max-width: 640px) {
+      width: 100% !important;
+      .react-slider__lens {
+        display: none !important;
+      }
+    }
+  &__container {
+    min-width: 300px !important;
+    min-height: 300px !important;
+    button {
+      bottom: -64px !important;
+      top: unset !important;
+      background: unset !important;
+      width: 40px !important;
+      height: 40px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        opacity: 0.6;
+      }
+      &::before {
+        border: thin solid var(--text-main) !important;
+        border-width: 0 3px 3px 0 !important;
+        padding: 5px !important;
+      }
+    }
+  }
+  &__areaZoom {
+    min-width: 300px !important;
+    min-height: 300px !important;
+  }
+  &__picture {
+    min-width: 300px !important;
+    min-height: 300px !important;
+    img {
+        min-width: 300px !important;
+        min-height: 300px !important;
+        object-fit: cover !important;
+    }
+  }
+  &__imgZoom {
+    right: 0 !important;
+    left: 94% !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+  &__ul {
+    margin: 40px 0 0 !important;
+  }
+  &__btnPrev {
+    right: 40px !important;
+    left: unset !important;
   }
 }

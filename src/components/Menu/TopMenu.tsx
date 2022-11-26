@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import Social from '../Common/Social';
 import { topNav } from './menu';
 
 const TopMenu = () => {
     return (
-        <div className='flex items-center justify-start container h-top-navbar'>
+        <div className='flex items-center justify-between container h-top-navbar'>
             <div className='text-white text-sm flex items-center gap-6'>
                 {topNav.map((item) => {
                     return (
@@ -29,6 +30,11 @@ const TopMenu = () => {
                         </div>
                     );
                 })}
+            </div>
+            <div>
+                <div className='flex items-center text-[32px] gap-4'>
+                    <Social />
+                </div>
             </div>
         </div>
     );

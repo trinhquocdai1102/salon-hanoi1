@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import SearchComponent from '../components/Search';
+import SearchComponent from '../Containers/Search';
 import Banner from '../components/Slider/Banner';
 
 const Search = () => {

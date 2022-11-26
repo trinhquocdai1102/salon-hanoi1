@@ -10,6 +10,8 @@ interface ItemType {
 }
 
 const Item = ({ item, type, radio = '1/1' }: ItemType) => {
+    console.log(item);
+
     return (
         <div>
             <Link
@@ -25,16 +27,11 @@ const Item = ({ item, type, radio = '1/1' }: ItemType) => {
             >
                 <div className='hover:scale-[1.1] ease-in duration-[400ms]'>
                     <LazyLoadImage
-                        onError={({ currentTarget }) => {
-                            currentTarget.onerror = null;
-                            currentTarget.src = imgNotFound;
-                        }}
-                        src={
-                            (item.imageUrl ||
-                                item.thumbnail ||
-                                item.thumbURL) ??
-                            imgNotFound
-                        }
+                        // onError={({ currentTarget }) => {
+                        //     currentTarget.onerror = null;
+                        //     currentTarget.src = imgNotFound;
+                        // }}
+                        src={item ?? imgNotFound}
                         alt={item.title}
                         effect='blur'
                         width='100%'

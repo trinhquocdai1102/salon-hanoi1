@@ -10,7 +10,7 @@ const HomeComponent = () => {
 
     return (
         <>
-            <div className='w-full mt-0 md:mt-navbar bg-main pb-[120px] min-h-screen'>
+            <div className='w-full mt-0 md:mt-navbar bg-main pb-[60px] min-h-screen'>
                 <div className='relative' id='top'>
                     <video
                         autoPlay
@@ -25,7 +25,7 @@ const HomeComponent = () => {
                         <div className='absolute w-4/5 top-0 right-0 left-0 bottom-0 flex items-center justify-center mx-auto'>
                             <div className='text-center text-white'>
                                 <h6 className='text-xl'>Salon Hà Nội 1</h6>
-                                <h2 className='text-[60px] lg:text-[76px] font-extrabold uppercase'>
+                                <h2 className='text-[40px] sm:text-[60px] lg:text-[76px] font-extrabold uppercase'>
                                     <span className='text-txt-highlight'>
                                         Cửa hàng bán xe
                                     </span>{' '}
@@ -70,8 +70,8 @@ const HomeComponent = () => {
                     <div className='pt-[60px] container'>
                         {chooseSegment === 1 ? (
                             <>
-                                <GridLayout col={4}>
-                                    {cars.slice(0, 8).map((car) => {
+                                <GridLayout col={4} gapY={32}>
+                                    {cars.slice(0, 12).map((car) => {
                                         return (
                                             <div
                                                 key={car.key}
@@ -85,7 +85,7 @@ const HomeComponent = () => {
                                                         <img
                                                             src={car.imageUrl}
                                                             alt={car.name}
-                                                            className='object-cover h-[160px] rounded-md'
+                                                            className='object-cover h-auto sm:h-[160px] rounded-md'
                                                         />
                                                     </div>
                                                     <div
@@ -98,7 +98,7 @@ const HomeComponent = () => {
                                                     </div>
                                                     <div className='pt-2 pb-4 text-sm'>
                                                         Giá bán:
-                                                        <span className='ml-2 font-medium'>
+                                                        <span className='ml-2 font-semibold text-txt-highlight'>
                                                             {car.price}
                                                         </span>
                                                     </div>

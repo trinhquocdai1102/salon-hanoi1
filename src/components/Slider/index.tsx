@@ -43,8 +43,8 @@ const Slider: FC<BannerProps> = ({
             spaceBetween={spacer}
             slidesPerView={views}
         >
-            {banners?.map((item) => (
-                <SwiperSlide key={item.key}>
+            {banners?.map((item, index) => (
+                <SwiperSlide key={item.key ?? index}>
                     <Item radio={radio} item={item} type={type} />
                 </SwiperSlide>
             ))}

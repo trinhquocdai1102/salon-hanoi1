@@ -1,7 +1,5 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MenuContext } from '../../context/MenuContext';
-import { useWindowScrollPositions } from '../../hooks/useWindowScrollPositions';
 
 interface MenuItemType {
     name: string;
@@ -14,7 +12,6 @@ interface MenuItemProps {
 }
 
 const MenuItem: FC<MenuItemProps> = ({ item }) => {
-    const { scrollY } = useWindowScrollPositions();
     const location = useLocation();
 
     return (
